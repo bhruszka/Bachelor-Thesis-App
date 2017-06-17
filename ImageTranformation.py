@@ -28,9 +28,9 @@ def cutImage(image):
     roi = image[0:image.shape[0], (borderLeft+16-borderLeft%16):(borderRight-borderRight%16)]
 
     histogram = histogram / (borderGrey.shape[0]//2)
-    plt.plot(histogram)
-    plt.axis([0, borderGrey.shape[1], 0, 255])
-    #plt.show()
+    # plt.plot(histogram)
+    # plt.axis([0, borderGrey.shape[1], 0, 255])
+    # #plt.show()
 
     return roi
 
