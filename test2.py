@@ -1,10 +1,10 @@
 import ImageProcessing as ip
 import glob, os
-os.chdir("E:\\testSet")
+os.chdir("root:\\testSet")
 i = 1
 for file in glob.glob("*.jpg"):
     print(i)
-    ip.processImage(file, "E:\\testResults\\", True)
+    ip.processImage(file, "root:\\testResults\\", True)
     i += 1
 
 
