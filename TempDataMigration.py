@@ -23,8 +23,8 @@ def DataMigration():
     #Create database/ get reference to database and add table:
     conn = sqlite3.connect(args["DbName"])
     c = conn.cursor()
-    # c.execute('''CREATE TABLE images
-    #              (name text, path text)''')
+    c.execute('''CREATE TABLE images
+                 (name text, path text)''')
     conn.commit()
     #Add all paths to db:
     i = 1
