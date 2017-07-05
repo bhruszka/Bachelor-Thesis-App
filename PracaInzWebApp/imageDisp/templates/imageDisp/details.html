@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pantomogram</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="jumbotron text-left">
+        <div class="col-md-offset-1">
+            <h1>Details: {{ pantomogram_info.image_name_text }}</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#1">Home</a></li>
+                <li><a href="#2">Menu 1</a></li>
+                <li><a href="#3">Menu 2</a></li>
+                <li><a href="#4">Menu 3</a></li>
+            </ul>
+        </div>
+        <div class="row">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        {% for tooth in pantomogram_info.present_teeth_text|slice:":16" %}
+                            <th>{{ tooth }}</th> 
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        {% for tooth in pantomogram_info.present_teeth_text|slice:"16:32" %}
+                            <th>{{ tooth }}</th> 
+                        {% endfor %}
+                    </tr>
+                </tbody> 
+            </table> 
+        </div>
+        <div class="row">
+            <img src=  {{ pantomogram_info.input_image.url }} style="max-width: 100%" >  
+        </div>  
+    </div>
+
+</body>

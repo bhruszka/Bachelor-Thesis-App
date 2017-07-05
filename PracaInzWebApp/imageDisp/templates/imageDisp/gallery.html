@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pantomogram</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="jumbotron text-left">
+        <div class="col-md-offset-1">
+            <h1>Pantomogram Gallery</h1>
+            <p>Praca Inzynierska - Bartosz Hruszka.</p>
+        </div>
+    </div>
+    <div class="container">
+
+       
+        {% if pantomograms_list %}
+            <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th> 
+                    <th>Present Teeth</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pantomogram_info in pantomograms_list %}
+                   
+                    <tr>                        
+                        <th> 
+                            <a href="/gallery/{{ pantomogram_info.image_name_text }}/details">                           
+                                <img src=  {{ pantomogram_info.input_image.url }}  style="height:100px;">      
+                            </a>                
+                        </th>
+                        <th>{{ pantomogram_info.image_name_text }}</th> 
+                        <th>{{ pantomogram_info.present_teeth_text }}</th>
+                    </tr>
+
+
+                {% endfor %}
+            </tbody>
+            </table>
+        {% else %}
+            <p>No images in gallery.</p>
+        {% endif %}
+
+    </div>
+</body>
