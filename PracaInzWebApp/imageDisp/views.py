@@ -10,6 +10,7 @@ def index(request):
 
 
 def gallery(request):
+    
     pantomograms_list = PantomogramInfo.objects.all()
     template = loader.get_template('imageDisp/gallery.html')
     context = {
@@ -17,6 +18,8 @@ def gallery(request):
     }
     return HttpResponse(template.render(context, request))
 
-def details(request, imageName, tabNumber = 1):
+def details(request, imageName, **kwargs):
+    tab = kwargs.get('tab','1')
+
     pantomogram_info = get_object_or_404(PantomogramInfo, pk=imageName)
-    return render(request, 'imageDisp/details.html', {'pantomogram_info': pantomogram_info})
+    return render(request, 'imageDisp/details.html', {'pantomogram_info': pantomogram_info, "tab": tab})

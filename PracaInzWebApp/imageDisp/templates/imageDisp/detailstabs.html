@@ -1,0 +1,30 @@
+
+{% if tab == "1" %}
+    <div class="row">
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    {% for tooth in pantomogram_info.present_teeth_text|slice:":16" %}
+                        <th>{{ tooth }}</th> 
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for tooth in pantomogram_info.present_teeth_text|slice:"16:32" %}
+                        <th>{{ tooth }}</th> 
+                    {% endfor %}
+                </tr>
+            </tbody> 
+        </table> 
+    </div>
+    <div class="row">
+        <img src=  {{ pantomogram_info.input_image.url }} style="max-width: 100%" >  
+    </div>
+{% elif tab == "2" %}
+    <div class="row">
+        <p> Tab2 </p>
+    </div>
+{% elif tab == "3" %}
+    <div class="row">
+        <p> Tab3 </p>
+    </div>
+{% endif %} 
