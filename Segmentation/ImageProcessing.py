@@ -5,7 +5,7 @@ import Segmentation as sg
 import Utility as uti
 import ImageTranformation as iT
 import cv2
-
+import SaveToDB as sb
 
 
 red = (0, 0, 255)
@@ -317,16 +317,32 @@ def processImage(imagePath, writePath, bTest):
 
     afterLaplace = cv2.cvtColor(afterLaplace, cv2.COLOR_GRAY2RGB)
     print(afterLaplace.shape)
-    resultImage = sg.makeWaterShed(afterLaplace, toothWidth, up_dJ, down_dJ, gapLine, gapCenter, saveFolderDir, backGround, bTest)
+    resultImage, thresh = sg.makeWaterShed(afterLaplace, toothWidth, up_dJ, down_dJ, gapLine, gapCenter, saveFolderDir, backGround, bTest)
+    writePath = "./PracaInzWebApp/media/"
+
 
     if bTest:
         cv2.imwrite(writePath + "/" + imageName + ".jpg", resultImage)
 
     else:
-        if not os.path.exists(saveFolderDir):
-            os.makedirs(saveFolderDir)
-        cv2.imwrite(saveFolderDir + "/" + "segmentedImage.jpg", resultImage)
+        imageFileName = imageName + ".jpg"
+        writePathImage = writePath + "Images"
+        writePathOutputImages = writePath + "OutputImages"
+        writePathThreshImages = writePath + "ThreshImages"
 
+        if not os.path.exists(writePathImage):
+            os.makedirs(writePathImage)
+        cv2.imwrite(saveFolderDir + "/" + imageFileName, img)
+
+        if not os.path.exists(writePathOutputImages):
+            os.makedirs(writePathOutputImages)
+        cv2.imwrite(saveFolderDir + "/" + imageFileName, resultImage)
+
+        if not os.path.exists(writePathThreshImages):
+            os.makedirs(writePathThreshImages)
+        cv2.imwrite(saveFolderDir + "/" + imageFileName, thresh)
+
+        sb.addImageToDb(imageName, "1111111111111111")
 
 
 # imagePathArg = "D:\\Projects\\Images\\P20140512_132024_0000.jpg"

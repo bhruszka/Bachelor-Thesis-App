@@ -2,7 +2,7 @@ import argparse
 import cv2
 import Segmentation as sg
 import os.path
-import ImageTranformation as iT
+from Segmentation import ImageTranformation as iT
 import numpy as np
 
 parser = argparse.ArgumentParser()

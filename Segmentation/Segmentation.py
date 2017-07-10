@@ -46,8 +46,8 @@ def makeToothPossitions(toothWidth, img, upD, downD, gapLine, center, path, bTes
 
 
 
-    if not bTest:
-        np.savetxt(path, thisToothPossition2, delimiter=' ')
+    # if not bTest:
+    #     np.savetxt(path, thisToothPossition2, delimiter=' ')
 
     return thisToothPossition2
 
@@ -70,10 +70,10 @@ def makeWaterShed(img, toothWidth, upD, downD, gapLine, center, path, backGround
 
 
     thresh = cv2.bitwise_and(thresh, thresh, mask=np.uint8(backGround))
-    if not bTest:
-        cv2.imwrite(path + "//" + "thresh.jpg", thresh)
+    # if not bTest:
+    #     cv2.imwrite(path + "//" + "thresh.jpg", thresh)
 
-    return waterShed(imgcopy, thisToothPossition, thresh)
+    return waterShed(imgcopy, thisToothPossition, thresh), thresh
 
 
 def redoWaterShed(img, path):

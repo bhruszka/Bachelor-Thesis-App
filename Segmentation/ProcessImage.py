@@ -1,5 +1,5 @@
 import argparse
-import ImageProcessing as ip
+from Segmentation import ImageProcessing as ip
 
 
 parser = argparse.ArgumentParser()
