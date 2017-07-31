@@ -4,3 +4,4 @@ from .models import ToothInfo
 # Register your models here.
 
 admin.site.register(PantomogramInfo)
+admin.site.register(ToothInfo)

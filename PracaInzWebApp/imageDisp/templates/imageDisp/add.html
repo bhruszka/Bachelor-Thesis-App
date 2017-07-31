@@ -1,0 +1,19 @@
+{% extends 'imageDisp/base.html' %}
+
+{% block content %}
+    <div class="container">
+
+        <div class="well well-lg">
+            <h1>Add pantomogram</h1>
+            <hr />
+            <form method="POST" class="post-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button type="submit" class="save btn btn-default">Save</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+

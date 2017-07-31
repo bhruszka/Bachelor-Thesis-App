@@ -14,7 +14,7 @@ def makeToothPossitions(toothWidth, img, upD, downD, gapLine, center, path, bTes
     downD = downD
     global bWidth
     bWidth = True
-    thisToothPossition2 = np.empty((2, 32), dtype=int)
+    thisToothPossition2 = np.empty((4, 32), dtype=int)
     thisToothPossition = np.empty(img.shape, dtype=bool)
     thisToothPossition.fill(False)
 
@@ -31,15 +31,23 @@ def makeToothPossitions(toothWidth, img, upD, downD, gapLine, center, path, bTes
 
         thisToothPossition2[0][7 - i] = upD + gapLine[int(center - int(currentWidthDown))]
         thisToothPossition2[1][7 - i] = center - int(currentWidthUp)
+        thisToothPossition2[2][7 - i] = upD//2 + gapLine[int(center - int(currentWidthDown))]
+        thisToothPossition2[3][7 - i] = center - int(currentWidthUp)
 
         thisToothPossition2[0][8 + i] = downD + gapLine[int(center - int(currentWidthDown))]
         thisToothPossition2[1][8 + i] = center - int(currentWidthDown)
+        thisToothPossition2[2][8 + i] = downD//2 + gapLine[int(center - int(currentWidthDown))]
+        thisToothPossition2[3][8 + i] = center - int(currentWidthDown)
 
         thisToothPossition2[0][23 - i] = upD + gapLine[int(center + int(currentWidthDown))]
         thisToothPossition2[1][23 - i] = center + int(currentWidthUp)
+        thisToothPossition2[2][23 - i] = upD//2 + gapLine[int(center + int(currentWidthDown))]
+        thisToothPossition2[3][23 - i] = center + int(currentWidthUp)
 
         thisToothPossition2[0][24 + i] = downD + gapLine[int(center + int(currentWidthDown))]
         thisToothPossition2[1][24 + i] = center + int(currentWidthDown)
+        thisToothPossition2[2][24 + i] = downD//2 + gapLine[int(center + int(currentWidthDown))]
+        thisToothPossition2[3][24 + i] = center + int(currentWidthDown)
 
         currentWidthUp += toothWidth[0, i] / 2
         currentWidthDown += toothWidth[0, i] / 2
@@ -73,23 +81,7 @@ def makeWaterShed(img, toothWidth, upD, downD, gapLine, center, path, backGround
     # if not bTest:
     #     cv2.imwrite(path + "//" + "thresh.jpg", thresh)
 
-    return waterShed(imgcopy, thisToothPossition, thresh), thresh
-
-
-def redoWaterShed(img, path):
-    fileName = path + "//" + "toothCoordinates.out"
-    if os.path.isfile(fileName):
-        thisToothPossition = np.loadtxt(fileName, dtype=np.int, delimiter=' ')
-    else:
-        return 1
-
-    fileName = path + "//" + "thresh.jpg"
-    if os.path.isfile(fileName):
-        thresh = cv2.imread(fileName, 1)
-        thresh = cv2.cvtColor(thresh, cv2.COLOR_BGR2GRAY)
-    else:
-        return 1
-    return waterShed(img, thisToothPossition, thresh)
+    return waterShed(imgcopy, thisToothPossition, thresh)
 
 
 def waterShed(img, thisToothPossition, thresh):
@@ -101,22 +93,48 @@ def waterShed(img, thisToothPossition, thresh):
     #img = cv2.cvtColor(thresh, cv2.COLOR_GRAY2BGR)
 
     for i in range(0, thisToothPossition[0].shape[0]):
-        starts[thisToothPossition[0][i], thisToothPossition[1][i]] = i
+
+        #starts[thisToothPossition[0][i], thisToothPossition[1][i]] = i
+        delta_y = thisToothPossition[0, i] - thisToothPossition[2, i]
+        delta_x = thisToothPossition[1, i] - thisToothPossition[3, i]
+        print("{} {} {}".format(i, delta_y, delta_x))
+        if abs(delta_y) >= 1 or abs(delta_x) >= 1:
+            if abs(delta_y) > abs(delta_x):
+                d_x = delta_x / delta_y
+                for j in range(0, delta_y, delta_y//abs(delta_y)):
+                    this_y = thisToothPossition[2, i] + j
+                    this_x = thisToothPossition[3, i] + int(j * d_x)
+                    starts[this_y, this_x] = i + 1
+                    img[this_y, (this_x - 2):(this_x + 2)] = (0, 255, 0)
+
+            else:
+                d_y = delta_y / delta_x
+                for j in range(0, delta_x, delta_x/abs(delta_x)):
+                    this_y = thisToothPossition[2, i] + int(j * d_y)
+                    this_x = thisToothPossition[3, i] + j
+                    starts[this_y, this_x] = i + 1
+                    img[(this_y-2):(this_y+2), this_x] = (0, 255, 0)
 
         cv2.circle(img, (thisToothPossition[1][i], thisToothPossition[0][i]), 5, (0, 0, 255), 1)
+        cv2.circle(img, (thisToothPossition[3][i], thisToothPossition[2][i]), 5, (0, 0, 255), 1)
         font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(img, str(i), (thisToothPossition[1][i], thisToothPossition[0][i]), font, 0.5, (255, 0, 0), 2,
+        cv2.putText(img, str(i) + "A", (thisToothPossition[1][i], thisToothPossition[0][i]), font, 0.5, (255, 0, 0), 2,
                     cv2.LINE_AA)
+        cv2.putText(img, str(i) + "B", (thisToothPossition[3][i], thisToothPossition[2][i]), font, 0.5, (255, 0, 0), 2,
+                    cv2.LINE_AA)
+        # TODO: draw a line:
 
     labels = watershed(-D, starts, mask=thresh)
 
-
+    teethImages = [None] * 32
+    bTeeth = [False] * 32
     for label in np.unique(labels):
         # if the label is zero, we are examining the 'background'
         # so simply ignore it
 
         if label == 0:
             continue
+
 
         # # otherwise, allocate memory for the label region and draw
         # # it on the mask
@@ -128,11 +146,23 @@ def waterShed(img, thisToothPossition, thresh):
                                 cv2.CHAIN_APPROX_NONE)[-2]
         c = max(cnts, key=cv2.contourArea)
 
-        #cv2.drawContours(img, c, -1, [0, 255, 0], 3)
+        if label in range(1,33):
+            print("Label is cool")
+            x, y, w, h = cv2.boundingRect(c)
+            # TODO: don't hardcode
+            if w in range(20, 150) and w in range(20, 150):
+                print("Here is cool too")
+                teethImages[label-1] = img[y:(y+h), x:(x+w)]
+                #cv2.imshow('afterLaplace', teethImages[label-1])
+                bTeeth[label-1] = True
+        else:
+            print("Not cool label {}".format(label))
+        cv2.drawContours(img, c, -1, [0, 255, 0], 3)
     # cv2.imshow('afterLaplace', img)
     # cv2.waitKey(0)
     # cv2.destroyAllWindows()
-    return img
+    thresh = cv2.cvtColor(thresh, cv2.COLOR_GRAY2BGR)
+    return img, thresh, thisToothPossition, bTeeth, teethImages
 
 def generateGrid(toothWidth, img, upD, downD, gapLine, center, path, bTest):
 

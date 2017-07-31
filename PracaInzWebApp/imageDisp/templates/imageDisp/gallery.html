@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Pantomogram</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+{% extends 'imageDisp/base.html' %}
 
-<body>
+{% block content %}
     <div class="jumbotron text-left">
         <div class="col-md-offset-1">
             <h1>Pantomogram Gallery</h1>
@@ -34,7 +25,7 @@
                     <tr>                        
                         <th> 
                             <a href="/gallery/{{ pantomogram_info.image_name_text }}/details">                           
-                                <img src=  {{ pantomogram_info.input_image.url }}  style="height:100px;">      
+                                <img src=  {{ pantomogram_info.output_image.url }}  style="height:100px;">
                             </a>                
                         </th>
                         <th>{{ pantomogram_info.image_name_text }}</th> 
@@ -50,4 +41,4 @@
         {% endif %}
 
     </div>
-</body>
+{% endblock %}

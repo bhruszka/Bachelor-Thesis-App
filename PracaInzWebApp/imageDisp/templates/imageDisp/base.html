@@ -2,24 +2,33 @@
 <html lang="en">
 
 <head>
-  <title>Pantomogram</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Pantomogram</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}">
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/gallery">Pantomogram Gallery</a>
-      </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/gallery">Pantomogram Gallery</a>
+            <a class="navbar-brand" href="/gallery/add">Add</a>
+            {#            <button type="button" class="btn navbar-btn" data-toggle="modal" data-target="#myModal">Add</button>#}
+        </div>
 
     </div>
-  </nav>
+</nav>
 
-  {% block content %} {% endblock %}
+
+{% block content %} {% endblock %}
+
+{#<!-- Modal -->#}
+{#<div id="myModal" class="modal" role="dialog">#}
+{#    <!-- Modal content-->#}
+{#    {% url 'add' %}#}
+{#</div>#}
 
 </body>

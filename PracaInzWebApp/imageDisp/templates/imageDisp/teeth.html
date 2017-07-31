@@ -1,0 +1,67 @@
+{% extends 'imageDisp/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <ul class="nav nav-tabs">
+                <li><a href="./1">Segmented Image</a></li>
+                <li><a href="./2">Input Image</a></li>
+                <li class="active"><a href="./3">Teeth</a></li>
+                <li><a href="./4">Edit</a></li>
+
+            </ul>
+        </div>
+        <div class="row">
+        <table class="table" style="max-width: 100%;">
+            <tbody>
+            {% load static %}
+            <tr>
+                {% for tooth in tooth_infos_ul %}
+                    <th><img style="max-width: 50px;" src=
+                    {% if tooth.teeth_image.url != None %}
+                        {{ tooth.teeth_image.url }}
+                    {% else %}
+                        "{% static 'images/NoTooth.jpg' %}"
+                    {% endif %}
+                    />
+                    </th>
+                {% endfor %}
+                {% for tooth in tooth_infos_ur %}
+                    <th><img style="max-width: 50px;" src=
+                    {% if tooth.teeth_image.url != None %}
+                        {{ tooth.teeth_image.url }}
+                    {% else %}
+                        "{% static 'images/NoTooth.jpg' %}"
+                    {% endif %}
+                    />
+                    </th>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for tooth in tooth_infos_dl %}
+                    <th><img style="max-width: 50px;" src=
+                    {% if tooth.teeth_image.url != None %}
+                        {{ tooth.teeth_image.url}}
+                    {% else %}
+                        "{% static 'images/NoTooth.jpg' %}"
+                    {% endif %}
+                    />
+                    </th>
+                {% endfor %}
+                {% for tooth in tooth_infos_dr %}
+                    <th>
+                    <img style="max-width: 50px;" src=
+                    {% if tooth.teeth_image.url != None %}
+                        {{ tooth.teeth_image.url }}
+                    {% else %}
+                        "{% static 'images/NoTooth.jpg' %}"
+                    {% endif %}
+                    />
+                    </th>
+                {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+{% endblock %}
