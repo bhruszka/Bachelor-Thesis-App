@@ -2,22 +2,72 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fe27ae0-6bbe-4e11-9b9c-a3907e32f427" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Segmentation/__init__.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/migrations/0002_auto_20170702_1458.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/migrations/__init__.py" afterPath="$PROJECT_DIR$/PracaInzWebApp/addImageToDB.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/static/images/NoTooth.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/forms.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/migrations/0001_initial.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/migrations/0002_auto_20170723_1415.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/static/scripts/sketch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/static/styles/main.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/add.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/teeth.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/styles/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140512_132024_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140514_090212_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140514_092234_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140514_093728_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140514_094537_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140514_095341_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140514_102445_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140514_104235_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140514_115024_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140514_120512_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140514_125004_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140514_135438_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140514_140201_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140515_094424_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140515_094718_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140515_095800_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140515_110421_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140515_112217_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140515_113312_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140515_125235_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140515_125941_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140515_135143_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140515_140100_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140516_084715_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140516_085225_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140516_102337_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140516_110656_0000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/Images/resultimage.PNG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/OutputImages/resultimage.PNG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PracaInzWebApp/media/ThreshImages/resultimage.PNG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Segmentation/ImageTranformation.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Segmentation/ProcessImage.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Segmentation/ReProcessImage.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Segmentation/SaveToDB.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Segmentation/Segmentation.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Segmentation/TeethInfo.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Segmentation/TempDataMigration.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Segmentation/Test.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Segmentation/Utility.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Segmentation/test2.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PracaInzWebApp/db.sqlite3" afterPath="$PROJECT_DIR$/PracaInzWebApp/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/PracaInz.iml" afterPath="$PROJECT_DIR$/.idea/PracaInz.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PracaInzWebApp/PracaInzWebApp/settings.py" afterPath="$PROJECT_DIR$/PracaInzWebApp/PracaInzWebApp/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PracaInzWebApp/PracaInzWebApp/urls.py" afterPath="$PROJECT_DIR$/PracaInzWebApp/PracaInzWebApp/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/admin.py" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Segmentation/ImageProcessing.py" afterPath="$PROJECT_DIR$/Segmentation/ImageProcessing.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Segmentation/ProcessImage.py" afterPath="$PROJECT_DIR$/Segmentation/ProcessImage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Segmentation/ReProcessImage.py" afterPath="$PROJECT_DIR$/Segmentation/ReProcessImage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Segmentation/SaveToDB.py" afterPath="$PROJECT_DIR$/Segmentation/SaveToDB.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Segmentation/Segmentation.py" afterPath="$PROJECT_DIR$/Segmentation/Segmentation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Segmentation/Test.py" afterPath="$PROJECT_DIR$/Segmentation/Test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/models.py" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/base.html" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/details.html" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/details.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/detailstabs.html" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/detailstabs.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/edit.html" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/gallery.html" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/gallery.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/urls.py" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/views.py" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/views.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Segmentation/ImageProcessing.py" afterPath="$PROJECT_DIR$/PracaInzWebApp/Segmentation/ImageProcessing.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Segmentation/__init__.py" afterPath="$PROJECT_DIR$/PracaInzWebApp/imageDisp/migrations/__init__.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,8 +77,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/PracaInz$Test__1_.coverage" NAME="Test (1) Coverage Results" MODIFIED="1500204136641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Segmentation" />
     <SUITE FILE_PATH="coverage/PracaInz$SaveToDB.coverage" NAME="SaveToDB Coverage Results" MODIFIED="1499515243832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Segmentation" />
-    <SUITE FILE_PATH="coverage/PracaInz$Test__1_.coverage" NAME="Test (1) Coverage Results" MODIFIED="1499600180356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Segmentation" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -42,13 +92,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SaveToDB.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Segmentation/SaveToDB.py">
+      <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="58" lean-forward="true" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+            <state relative-caret-position="695">
+              <caret line="52" column="231" lean-forward="false" selection-start-line="52" selection-start-column="231" selection-end-line="52" selection-end-column="231" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="teeth.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/teeth.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="610">
+              <caret line="56" column="59" lean-forward="false" selection-start-line="56" selection-start-column="59" selection-end-line="56" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="141" column="29" lean-forward="false" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tests.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WatershedMaker.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/Segmentation/WatershedMaker.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1657">
+              <caret line="86" column="46" lean-forward="false" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="46" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="87" column="30" lean-forward="false" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,98 +185,18 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PracaInzWebApp/PracaInzWebApp/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/PracaInzWebApp/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#648#689#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="apps.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/apps.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/PracaInzWebApp/wsgi.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#231#240#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="importImages.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/importImages.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-                <marker date="1499512288401" expanded="true" signature="543:658" ph="INSERT INTO imageDisp_pantomograminfo... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="manage.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/manage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addImageToDB.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/addImageToDB.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-                <marker date="1499600469515" expanded="true" signature="419:566" ph="INSERT INTO imageDisp_pantomograminfo... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Segmentation/Test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="525">
+              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="ImageProcessing.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Segmentation/ImageProcessing.py">
+        <entry file="file://$PROJECT_DIR$/PracaInzWebApp/Segmentation/ImageProcessing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="559">
+              <caret line="303" column="57" lean-forward="false" selection-start-line="303" selection-start-column="57" selection-end-line="303" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -159,6 +207,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -195,17 +244,36 @@
         <option value="$PROJECT_DIR$/ImageTranformation.py" />
         <option value="$PROJECT_DIR$/TempDataMigration.py" />
         <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/migrations/0001_initial.py" />
-        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/admin.py" />
-        <option value="$PROJECT_DIR$/Segmentation/Segmentation.py" />
         <option value="$PROJECT_DIR$/Segmentation/ProcessImage.py" />
         <option value="$PROJECT_DIR$/Segmentation/ReProcessImage.py" />
         <option value="$PROJECT_DIR$/PracaInzWebApp/__init__.py" />
         <option value="$PROJECT_DIR$/Segmentation/Test.py" />
         <option value="$PROJECT_DIR$/Segmentation/__init__.py" />
-        <option value="$PROJECT_DIR$/Segmentation/ImageProcessing.py" />
-        <option value="$PROJECT_DIR$/PracaInzWebApp/PracaInzWebApp/settings.py" />
-        <option value="$PROJECT_DIR$/Segmentation/SaveToDB.py" />
         <option value="$PROJECT_DIR$/PracaInzWebApp/addImageToDB.py" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/styles/main.css" />
+        <option value="$PROJECT_DIR$/Segmentation/SaveToDB.py" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/add.html" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/forms.py" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/detailstabs.html" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/gallery.html" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/admin.py" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/details.html" />
+        <option value="$PROJECT_DIR$/Segmentation/Segmentation.py" />
+        <option value="$PROJECT_DIR$/Segmentation/ImageProcessing.py" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/Segmentation/ReProcessImage.py" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/urls.py" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/static/scripts/sketch.js" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/PracaInzWebApp/urls.py" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/teeth.html" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/base.html" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/static/styles/main.css" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/static/scripts/sketch.js" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/edit.html" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/Segmentation/WatershedMaker.py" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/PracaInzWebApp/settings.py" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/models.py" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/Segmentation/ImageProcessing.py" />
+        <option value="$PROJECT_DIR$/PracaInzWebApp/imageDisp/views.py" />
       </list>
     </option>
   </component>
@@ -216,10 +284,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="y" value="2" />
-    <option name="width" value="1932" />
-    <option name="height" value="1045" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -236,6 +304,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -258,6 +328,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInzWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInzWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Segmentation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -275,6 +363,10 @@
               <option name="myItemId" value="PracaInzWebApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInzWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -290,20 +382,155 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="media" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="PracaInzWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imageDisp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInzWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imageDisp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imageDisp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInzWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imageDisp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInzWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imageDisp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PracaInzWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imageDisp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PracaInz/PracaInzWebApp/PracaInzWebApp/settings.py" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/PracaInzWebApp/PracaInzWebApp/settings.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Desktop\Repos\PracaInz\PracaInzWebApp\imageDisp\static\images" />
+      <recent name="D:\Desktop\Repos\PracaInz\PracaInzWebApp\imageDisp" />
+      <recent name="D:\Desktop\Repos\PracaInz\PracaInzWebApp\static\scripts" />
+      <recent name="D:\Desktop\Repos\PracaInz\PracaInzWebApp" />
+      <recent name="D:\Desktop\Repos\PracaInz\PracaInzWebApp\static" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Desktop\Repos\PracaInz\PracaInzWebApp\imageDisp" />
+      <recent name="D:\Desktop\Repos\PracaInz\PracaInzWebApp" />
+      <recent name="D:\Desktop\Repos\PracaInz\PracaInzWebApp\imageDisp\templates\imageDisp\Scripts" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -654,26 +881,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="2" width="1932" height="1045" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17895299" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12846482" sideWeight="0.4936306" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37191853" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32785088" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37280703" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32690248" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972618" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26535088" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2636656" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18894257" sideWeight="0.5063694" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="manage.py@PracaInz" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="manage.py@PracaInz" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3847803" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -714,137 +941,115 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Utility.py" />
-    <entry file="file://$PROJECT_DIR$/Segmentation.py" />
-    <entry file="file://$PROJECT_DIR$/ImageProcessing.py" />
-    <entry file="file://$PROJECT_DIR$/ProcessImage.py" />
-    <entry file="file://$PROJECT_DIR$/ImageTranformation.py" />
-    <entry file="file://$PROJECT_DIR$/Utility.py" />
-    <entry file="file://$PROJECT_DIR$/Segmentation.py" />
-    <entry file="file://$PROJECT_DIR$/Test.py" />
-    <entry file="file://$PROJECT_DIR$/ImageProcessing.py" />
-    <entry file="file://$PROJECT_DIR$/ImageTranformation.py" />
-    <entry file="file://$PROJECT_DIR$/Utility.py" />
-    <entry file="file://$PROJECT_DIR$/Segmentation.py" />
-    <entry file="file://$PROJECT_DIR$/ImageProcessing.py" />
-    <entry file="file://$PROJECT_DIR$/ImageProcessing.py" />
-    <entry file="file://$PROJECT_DIR$/Results/P20140514_125004_0000/P20140514_125004_0000.jpg" />
-    <entry file="file://$PROJECT_DIR$/Results/P20140513_103757_0000/P20140513_103757_0000.jpg" />
-    <entry file="file://$PROJECT_DIR$/Results/P20140513_103757_0000/segmentedImage.jpg">
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/DL5_P20140514_102445_0000.jpg" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/DL6_P20140514_102445_0000.jpg" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/DR1_P20140514_102445_0000.jpg" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/DR3_P20140514_102445_0000.jpg" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/DR4_P20140514_102445_0000.jpg" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/DR8_P20140514_102445_0000.jpg" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/UL0_P20140514_102445_0000.jpg" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/UL4_P20140514_102445_0000.jpg" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/UL5_P20140514_102445_0000.jpg" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/UL6_P20140514_102445_0000.jpg" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/UL7_P20140514_102445_0000.jpg" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/UR0_P20140514_102445_0000.jpg" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/UR5_P20140514_102445_0000.jpg" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/UR4_P20140514_102445_0000.jpg" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/UL0_P20140512_132024_0000.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utility.py" />
-    <entry file="file://$PROJECT_DIR$/test.out" />
-    <entry file="file://$PROJECT_DIR$/TeethInfo.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Start Page.url" />
-    <entry file="file://$PROJECT_DIR$/ReProcessImage.py" />
-    <entry file="file://$PROJECT_DIR$/Segmentation.py" />
-    <entry file="file://$PROJECT_DIR$/ImageTranformation.py" />
-    <entry file="file://$PROJECT_DIR$/Test.py" />
-    <entry file="file://$PROJECT_DIR$/ProcessImage.py" />
-    <entry file="file://$PROJECT_DIR$/test2.py" />
-    <entry file="file://$PROJECT_DIR$/ImageProcessing.py" />
-    <entry file="file://$PROJECT_DIR$/TempDataMigration.py" />
-    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Segmentation/TeethInfo.py">
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/Segmentation/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/Segmentation/Utility.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Segmentation/ImageTranformation.py">
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/Segmentation/Test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Segmentation/ProcessImage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Segmentation/ReProcessImage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="36" lean-forward="false" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Segmentation/Segmentation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3689">
-          <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/__init__.py">
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/Segmentation/test2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Segmentation/__init__.py">
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/Segmentation/TempDataMigration.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/PracaInzWebApp/wsgi.py">
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/Segmentation/TeethInfo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#231#240#0" expanded="true" />
-          </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/Segmentation/SaveToDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/Segmentation/ImageTranformation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/ThreshImages/P20140512_132024_0000.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/TeethImages/DL0_P20140512_132024_0000.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/OutputImages/P20140512_132024_0000.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/media/Images/P20140512_132024_0000.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/static/styles/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -854,74 +1059,197 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PracaInzWebApp/PracaInzWebApp/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="340">
+          <caret line="23" column="66" lean-forward="false" selection-start-line="23" selection-start-column="66" selection-end-line="23" selection-end-column="66" />
           <folding>
-            <element signature="e#648#689#0" expanded="true" />
+            <element signature="e#648#689#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Segmentation/ImageProcessing.py">
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/gallery.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="459">
+          <caret line="27" column="75" lean-forward="false" selection-start-line="27" selection-start-column="75" selection-end-line="27" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Segmentation/Test.py">
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/detailstabs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="425">
+          <caret line="25" column="17" lean-forward="false" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/manage.py">
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/Segmentation/ReProcessImage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/importImages.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="459">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1499512288401" expanded="true" signature="543:658" ph="INSERT INTO imageDisp_pantomograminfo... " />
+            <element signature="e#0#15#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/Segmentation/ProcessImage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/static/scripts/sketch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/static/styles/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/static/images/NoTooth.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/static/scripts/sketch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <marker date="1501444140680" expanded="true" signature="726:2212" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="2238:2391" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="2409:2670" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="2633:2668" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="2688:3229" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="2710:2754" ph="//..." />
+            <marker date="1501444140680" expanded="true" signature="2806:2823" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="2899:3132" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="2921:3020" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="3029:3128" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="3163:3205" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="3254:3463" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="3286:3442" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="3363:3438" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="3489:3552" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="3550:3552" ph="{...}" />
+            <marker date="1501444140680" expanded="true" signature="3578:3599" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/teeth.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="610">
+          <caret line="56" column="59" lean-forward="false" selection-start-line="56" selection-start-column="59" selection-end-line="56" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/templates/imageDisp/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="695">
+          <caret line="52" column="231" lean-forward="false" selection-start-line="52" selection-start-column="231" selection-end-line="52" selection-end-column="231" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/Segmentation/WatershedMaker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1657">
+          <caret line="86" column="46" lean-forward="false" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PracaInzWebApp/PracaInzWebApp/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="35" />
+        <state relative-caret-position="525">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Segmentation/SaveToDB.py">
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="58" lean-forward="true" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="87" column="30" lean-forward="false" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="30" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/addImageToDB.py">
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/Segmentation/ImageProcessing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        <state relative-caret-position="559">
+          <caret line="303" column="57" lean-forward="false" selection-start-line="303" selection-start-column="57" selection-end-line="303" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PracaInzWebApp/imageDisp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="141" column="29" lean-forward="false" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <marker date="1499600469515" expanded="true" signature="419:566" ph="INSERT INTO imageDisp_pantomograminfo... " />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
