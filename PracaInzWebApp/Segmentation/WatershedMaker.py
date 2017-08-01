@@ -66,7 +66,6 @@ def makeWaterShed(img, toothWidth, upD, downD, gapLine, center, path, backGround
 
     fileName = path + "//" + "toothCoordinates.out"
     thisToothPossition = makeToothPossitions(toothWidth, gray, upD, downD, gapLine, center, fileName, bTest)
-    img = generateGrid(toothWidth, img, upD, downD, gapLine, center, path, bTest)
     imgcopy = np.copy(img)
     img = cv2.morphologyEx(img, cv2.MORPH_OPEN,
                            np.ones((5, 5), dtype=int))
@@ -105,22 +104,22 @@ def waterShed(img, thisToothPossition, thresh):
                     this_y = thisToothPossition[2, i] + j
                     this_x = thisToothPossition[3, i] + int(j * d_x)
                     starts[this_y, this_x] = i + 1
-                    img[this_y, (this_x - 2):(this_x + 2)] = (0, 255, 0)
+                    img[this_y, (this_x - 2):(this_x + 2)] = (255, 0, 0)
 
             else:
                 d_y = delta_y / delta_x
-                for j in range(0, delta_x, delta_x/abs(delta_x)):
+                for j in range(0, int(delta_x), int(delta_x/abs(delta_x))):
                     this_y = thisToothPossition[2, i] + int(j * d_y)
                     this_x = thisToothPossition[3, i] + j
                     starts[this_y, this_x] = i + 1
-                    img[(this_y-2):(this_y+2), this_x] = (0, 255, 0)
+                    img[(this_y-2):(this_y+2), this_x] = (255, 0, 0)
 
         cv2.circle(img, (thisToothPossition[1][i], thisToothPossition[0][i]), 5, (0, 0, 255), 1)
         cv2.circle(img, (thisToothPossition[3][i], thisToothPossition[2][i]), 5, (0, 0, 255), 1)
-        font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(img, str(i) + "A", (thisToothPossition[1][i], thisToothPossition[0][i]), font, 0.5, (255, 0, 0), 2,
+        font = cv2.QT_FONT_LIGHT
+        cv2.putText(img, str(i+1) + "A", (thisToothPossition[1][i], thisToothPossition[0][i]), font, 0.5, (255, 0, 0), 2,
                     cv2.LINE_AA)
-        cv2.putText(img, str(i) + "B", (thisToothPossition[3][i], thisToothPossition[2][i]), font, 0.5, (255, 0, 0), 2,
+        cv2.putText(img, str(i+1) + "B", (thisToothPossition[3][i], thisToothPossition[2][i]), font, 0.5, (255, 0, 0), 2,
                     cv2.LINE_AA)
         # TODO: draw a line:
 
@@ -157,99 +156,11 @@ def waterShed(img, thisToothPossition, thresh):
                 bTeeth[label-1] = True
         else:
             print("Not cool label {}".format(label))
-        cv2.drawContours(img, c, -1, [0, 255, 0], 3)
+        cv2.drawContours(img, c, -1, [0, 255, 0], 2)
     # cv2.imshow('afterLaplace', img)
     # cv2.waitKey(0)
     # cv2.destroyAllWindows()
     thresh = cv2.cvtColor(thresh, cv2.COLOR_GRAY2BGR)
     return img, thresh, thisToothPossition, bTeeth, teethImages
 
-def generateGrid(toothWidth, img, upD, downD, gapLine, center, path, bTest):
 
-    upD = upD
-    downD = downD
-
-    teethGrid = np.empty((2, 17, 2, 2), dtype=int)
-
-    currentWidthUp = 0
-    currentWidthDown = 0
-
-    teethGrid[0, 8, 0, 0] = upD + gapLine[int(center)]
-    teethGrid[0, 8, 0, 1] = int(center)
-    teethGrid[0, 8, 1, 0] = gapLine[int(center)]
-    teethGrid[0, 8, 1, 1] = int(center)
-
-    teethGrid[1, 8, 0, 0] = downD + gapLine[int(center)]
-    teethGrid[1, 8, 0, 1] = int(center)
-    teethGrid[1, 8, 1, 0] = gapLine[int(center)]
-    teethGrid[1, 8, 1, 1] = int(center)
-
-
-    for i in range(1, 9):
-        currentWidthUp += toothWidth[0, i-1]
-        currentWidthDown += toothWidth[1, i-1]
-
-        teethGrid[0, 8 - i, 0, 0] = upD + gapLine[int(center - currentWidthUp)]
-        teethGrid[0, 8 - i, 0, 1] = int(center - currentWidthUp)
-        teethGrid[0, 8 - i, 1, 0] = gapLine[int(center - currentWidthUp)]
-        teethGrid[0, 8 - i, 1, 1] = int(center - currentWidthUp)
-
-        teethGrid[0, 8 + i, 0, 0] = upD + gapLine[int(center + currentWidthUp)]
-        teethGrid[0, 8 + i, 0, 1] = int(center + currentWidthUp)
-        teethGrid[0, 8 + i, 1, 0] = gapLine[int(center + currentWidthUp)]
-        teethGrid[0, 8 + i, 1, 1] = int(center + currentWidthUp)
-
-        teethGrid[1, 8 - i, 0, 0] = downD + gapLine[int(center - currentWidthDown)]
-        teethGrid[1, 8 - i, 0, 1] = int(center - currentWidthDown)
-        teethGrid[1, 8 - i, 1, 0] = gapLine[int(center - currentWidthDown)]
-        teethGrid[1, 8 - i, 1, 1] = int(center - currentWidthDown)
-
-        teethGrid[1, 8 + i, 0, 0] = downD + gapLine[int(center + currentWidthDown)]
-        teethGrid[1, 8 + i, 0, 1] = int(center + currentWidthDown)
-        teethGrid[1, 8 + i, 1, 0] = gapLine[int(center + currentWidthDown)]
-        teethGrid[1, 8 + i, 1, 1] = int(center + currentWidthDown)
-
-    return drawGrid(img, teethGrid)
-
-def drawGrid(img, teethGrid):
-    #return
-    if teethGrid.shape != (2, 17, 2, 2):
-        print("Wrong size")
-
-    currentPointsUpLeft = np.array(teethGrid[0,8,:,:])
-    currentPointsUpRight = np.array(teethGrid[0, 8, :, :])
-
-    currentPointsDownLeft = np.array(teethGrid[1,8,:,:])
-    currentPointsDownRight = np.array(teethGrid[1, 8, :, :])
-
-    # cv2.line(img, tuple(currentPointsUpLeft[0, ::-1]), tuple(currentPointsUpLeft[1, ::-1]), (0, 255, 0), thickness=3, lineType=8, shift=0)
-    # cv2.line(img, tuple(currentPointsUpRight[0, ::-1]), tuple(currentPointsUpRight[1, ::-1]), (0, 255, 0), thickness=3, lineType=8, shift=0)
-    # cv2.line(img, tuple(currentPointsDownLeft[0, ::-1]), tuple(currentPointsDownLeft[1, ::-1]), (0, 255, 0), thickness=3, lineType=8, shift=0)
-    # cv2.line(img, tuple(currentPointsDownRight[0, ::-1]), tuple(currentPointsDownRight[1, ::-1]), (0, 255, 0), thickness=3, lineType=8, shift=0)
-    for i in range(1, 9):
-
-        p1 = teethGrid[0, 8-i, :, :]
-        #cv2.line(img, tuple(currentPointsUpLeft[0, ::-1]), tuple(p1[0, ::-1]), (0, 0, 255), thickness=1, lineType=8, shift=0)
-        cv2.line(img, tuple(currentPointsUpLeft[1, ::-1]), tuple(p1[1, ::-1]), (0, 255, 0), thickness=1, lineType=8, shift=0)
-        # cv2.line(img,  tuple(p1[0, ::-1]), tuple(p1[1, ::-1]), (0, 255, 0), thickness=3, lineType=8, shift=0)
-        currentPointsUpLeft = p1
-
-        p2 = teethGrid[0, 8+i, :, :]
-        #cv2.line(img, tuple(currentPointsUpRight[0, ::-1]), tuple(p2[0, ::-1]), (0, 0, 255), thickness=1, lineType=8, shift=0)
-        cv2.line(img, tuple(currentPointsUpRight[1, ::-1]), tuple(p2[1, ::-1]), (0, 255, 0), thickness=1, lineType=8, shift=0)
-        # cv2.line(img, tuple(p2[0, ::-1]), tuple(p2[1, ::-1]), (0, 255, 0), thickness=3, lineType=8, shift=0)
-        currentPointsUpRight = p2
-
-        p3 = teethGrid[1, 8-i, :, :]
-        #cv2.line(img, tuple(currentPointsDownLeft[0, ::-1]), tuple(p3[0, ::-1]), (0,0,255), thickness=1, lineType=8, shift=0)
-        cv2.line(img, tuple(currentPointsDownLeft[1, ::-1]), tuple(p3[1, ::-1]), (0, 255, 0), thickness=1, lineType=8, shift=0)
-        # cv2.line(img, tuple(p3[0, ::-1]), tuple(p3[1, ::-1]), (0, 255, 0), thickness=3, lineType=8, shift=0)
-        currentPointsDownLeft = p3
-
-        p4 = teethGrid[1, 8+i, :, :]
-        #cv2.line(img, tuple(currentPointsDownRight[0, ::-1]), tuple(p4[0, ::-1]), (0,0,255), thickness=1, lineType=8, shift=0)
-        cv2.line(img, tuple(currentPointsDownRight[1, ::-1]), tuple(p4[1, ::-1]), (0, 255, 0), thickness=1, lineType=8, shift=0)
-        # cv2.line(img, tuple(p4[0, ::-1]), tuple(p4[1, ::-1]), (0, 255, 0), thickness=3, lineType=8, shift=0)
-        currentPointsDownRight = p4
-
-    return img
