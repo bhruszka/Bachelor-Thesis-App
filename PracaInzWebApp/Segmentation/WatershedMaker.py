@@ -116,7 +116,7 @@ def waterShed(img, thisToothPossition, thresh):
 
         cv2.circle(img, (thisToothPossition[1][i], thisToothPossition[0][i]), 5, (0, 0, 255), 1)
         cv2.circle(img, (thisToothPossition[3][i], thisToothPossition[2][i]), 5, (0, 0, 255), 1)
-        font = cv2.QT_FONT_LIGHT
+        font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(img, str(i+1) + "A", (thisToothPossition[1][i], thisToothPossition[0][i]), font, 0.5, (255, 0, 0), 2,
                     cv2.LINE_AA)
         cv2.putText(img, str(i+1) + "B", (thisToothPossition[3][i], thisToothPossition[2][i]), font, 0.5, (255, 0, 0), 2,
