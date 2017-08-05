@@ -75,12 +75,12 @@ def makeWaterShed(img, toothWidth, upD, downD, gapLine, center, path, backGround
     thresh = cv2.cvtColor(shifted.astype(np.uint8), cv2.COLOR_BGR2GRAY)
     thresh = cv2.threshold(thresh, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
 
-
     thresh = cv2.bitwise_and(thresh, thresh, mask=np.uint8(backGround))
     # if not bTest:
     #     cv2.imwrite(path + "//" + "thresh.jpg", thresh)
+    D = ndimage.distance_transform_edt(thresh)
 
-    return waterShed(imgcopy, thisToothPossition, thresh)
+    return waterShed(img, thisToothPossition, thresh)
 
 
 def waterShed(img, thisToothPossition, thresh):
@@ -89,7 +89,6 @@ def waterShed(img, thisToothPossition, thresh):
     starts = np.empty(img.shape[0:2], dtype=int)
     starts.fill(0)
 
-    #img = cv2.cvtColor(thresh, cv2.COLOR_GRAY2BGR)
 
     for i in range(0, thisToothPossition[0].shape[0]):
 
@@ -100,19 +99,19 @@ def waterShed(img, thisToothPossition, thresh):
         if abs(delta_y) >= 1 or abs(delta_x) >= 1:
             if abs(delta_y) > abs(delta_x):
                 d_x = delta_x / delta_y
-                for j in range(0, delta_y, delta_y//abs(delta_y)):
+                for j in range(0, delta_y, int(delta_y//abs(delta_y))):
                     this_y = thisToothPossition[2, i] + j
                     this_x = thisToothPossition[3, i] + int(j * d_x)
-                    starts[this_y, this_x] = i + 1
-                    img[this_y, (this_x - 2):(this_x + 2)] = (255, 0, 0)
+                    starts[this_y, (this_x - 2):(this_x + 3)] = (i + 1)
+                    img[this_y, (this_x - 2):(this_x + 3)] = (0, 255, 0)
 
             else:
                 d_y = delta_y / delta_x
                 for j in range(0, int(delta_x), int(delta_x/abs(delta_x))):
                     this_y = thisToothPossition[2, i] + int(j * d_y)
                     this_x = thisToothPossition[3, i] + j
-                    starts[this_y, this_x] = i + 1
-                    img[(this_y-2):(this_y+2), this_x] = (255, 0, 0)
+                    starts[(this_y - 2):(this_y + 3), this_x] = (i + 1)
+                    img[(this_y - 2):(this_y + 3), this_x] = (0, 255, 0)
 
         cv2.circle(img, (thisToothPossition[1][i], thisToothPossition[0][i]), 5, (0, 0, 255), 1)
         cv2.circle(img, (thisToothPossition[3][i], thisToothPossition[2][i]), 5, (0, 0, 255), 1)

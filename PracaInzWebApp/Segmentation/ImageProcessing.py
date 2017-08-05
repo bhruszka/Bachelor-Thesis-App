@@ -16,6 +16,7 @@ toothWidth = [0.126493324, 0.098383696, 0.114546732,
               0.105411103, 0.099789178, 0.151791989,
               0.151791989, 0.151791989]
 
+
 def mat2base64(mat):
     """Ecodes image array to Base64"""
     encoded = cv2.imencode(".jpg", mat)[1]
@@ -295,20 +296,31 @@ def processImage(inputimg, writePath="", bTest=False):
     backGround = np.empty(gray.shape, dtype=np.uint16)
     backGround.fill(0)
 
-    markers = np.empty(gray.shape, dtype=np.uint16)
-    markers.fill(0)
-    for i in range(int(gapStart), int(gapStart + 2 * gapWidth)):
-        markers[(gapLine[i] + up_dJ):(gapLine[i] + down_dJ), i] = 1
-        backGround[(gapLine[i] + 2 * up_dJ):(gapLine[i] + 2 * down_dJ), i] = 255
+    bG_up_dj = int(2.5 * up_dJ)
+    bG_down_dj = int(2.5 * down_dJ)
+    gapEnd = int(gapStart + 2 * gapWidth)
+    for i in range(gapStart, gapEnd):
+        backGround[(gapLine[i] + bG_up_dj):(gapLine[i] + bG_down_dj), i] = 255
         backGround[(gapLine[i] - 1):(gapLine[i] + 10), i] = 0
+
+    backGround[(gapLine[gapStart] + bG_up_dj):(gapLine[gapStart] + bG_down_dj), :int(gapStart)] = 255
+    backGround[
+    (gapLine[gapEnd - 1] + bG_up_dj):(gapLine[gapEnd - 1] + bG_down_dj),
+    (gapEnd - 1):] = 255
+
+    backGround[(gapLine[int(gapStart)] - 1):(gapLine[int(gapStart)] + 10), :int(gapStart)] = 0
+    backGround[(gapLine[(gapEnd - 1)] - 1):(gapLine[(gapEnd - 1)] + 10),
+    (gapEnd - 1):] = 0
     # img = cv2.cvtColor(afterLaplace,cv2.COLOR_GRAY2RGB)
     # img = cv2.bitwise_and(img, img, mask=np.uint8(backGround))
 
 
     afterLaplace = cv2.cvtColor(afterLaplace, cv2.COLOR_GRAY2RGB)
-    resultImage, thresh, thisToothPossition, bTeeth, teethImages = sg.makeWaterShed(afterLaplace, toothWidth, up_dJ, down_dJ, gapLine, gapCenter, "",
-                                           backGround, bTest)
+    resultImage, thresh, thisToothPossition, bTeeth, teethImages = sg.makeWaterShed(afterLaplace, toothWidth, up_dJ,
+                                                                                    down_dJ, gapLine, gapCenter, "",
+                                                                                    backGround, bTest)
     return mat2base64(tempImg), mat2base64(resultImage), mat2base64(thresh), thisToothPossition, bTeeth, teethImages
+
 
 def redoWatershed(inputimg, threshimg, thisToothPossition):
     img = np.array(inputimg)
