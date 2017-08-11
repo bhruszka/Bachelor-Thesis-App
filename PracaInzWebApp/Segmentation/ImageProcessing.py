@@ -301,7 +301,7 @@ def processImage(inputimg, writePath="", bTest=False):
     gapEnd = int(gapStart + 2 * gapWidth)
     for i in range(gapStart, gapEnd):
         backGround[(gapLine[i] + bG_up_dj):(gapLine[i] + bG_down_dj), i] = 255
-        backGround[(gapLine[i] - 1):(gapLine[i] + 10), i] = 0
+        backGround[(gapLine[i] - 1):(gapLine[i] + 10), i]  = 0
 
     backGround[(gapLine[gapStart] + bG_up_dj):(gapLine[gapStart] + bG_down_dj), :int(gapStart)] = 255
     backGround[

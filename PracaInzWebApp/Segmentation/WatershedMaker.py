@@ -20,42 +20,37 @@ def makeToothPossitions(toothWidth, img, upD, downD, gapLine, center, path, bTes
 
     currentWidthUp = 0
     currentWidthDown = 0
+
+    d_upD = int(2 * upD / 3)
+    u_upD = int(3 * upD / 2)
+    d_downD = int(2 * downD / 3)
+    u_downD = int(3 * downD / 2)
     for i in range(0, toothWidth.shape[1]):
         currentWidthUp += toothWidth[0, i] / 2
         currentWidthDown += toothWidth[0, i] / 2
 
-        thisToothPossition[upD + gapLine[int(center - int(currentWidthDown))], center - int(currentWidthUp)] = True
-        thisToothPossition[downD + gapLine[int(center - int(currentWidthDown))], center - int(currentWidthDown)] = True
-        thisToothPossition[upD + gapLine[int(center + int(currentWidthDown))], center + int(currentWidthUp)] = True
-        thisToothPossition[downD + gapLine[int(center + int(currentWidthDown))], center + int(currentWidthDown)] = True
-
-        thisToothPossition2[0][7 - i] = upD + gapLine[int(center - int(currentWidthDown))]
+        thisToothPossition2[0][7 - i] = d_upD + gapLine[int(center - int(currentWidthDown))]
         thisToothPossition2[1][7 - i] = center - int(currentWidthUp)
-        thisToothPossition2[2][7 - i] = upD//2 + gapLine[int(center - int(currentWidthDown))]
+        thisToothPossition2[2][7 - i] = u_upD + gapLine[int(center - int(currentWidthDown))]
         thisToothPossition2[3][7 - i] = center - int(currentWidthUp)
 
-        thisToothPossition2[0][8 + i] = downD + gapLine[int(center - int(currentWidthDown))]
+        thisToothPossition2[0][8 + i] = d_downD + gapLine[int(center - int(currentWidthDown))]
         thisToothPossition2[1][8 + i] = center - int(currentWidthDown)
-        thisToothPossition2[2][8 + i] = downD//2 + gapLine[int(center - int(currentWidthDown))]
+        thisToothPossition2[2][8 + i] = u_downD + gapLine[int(center - int(currentWidthDown))]
         thisToothPossition2[3][8 + i] = center - int(currentWidthDown)
 
-        thisToothPossition2[0][23 - i] = upD + gapLine[int(center + int(currentWidthDown))]
+        thisToothPossition2[0][23 - i] = d_upD + gapLine[int(center + int(currentWidthDown))]
         thisToothPossition2[1][23 - i] = center + int(currentWidthUp)
-        thisToothPossition2[2][23 - i] = upD//2 + gapLine[int(center + int(currentWidthDown))]
+        thisToothPossition2[2][23 - i] = u_upD + gapLine[int(center + int(currentWidthDown))]
         thisToothPossition2[3][23 - i] = center + int(currentWidthUp)
 
-        thisToothPossition2[0][24 + i] = downD + gapLine[int(center + int(currentWidthDown))]
+        thisToothPossition2[0][24 + i] = d_downD + gapLine[int(center + int(currentWidthDown))]
         thisToothPossition2[1][24 + i] = center + int(currentWidthDown)
-        thisToothPossition2[2][24 + i] = downD//2 + gapLine[int(center + int(currentWidthDown))]
+        thisToothPossition2[2][24 + i] = u_downD + gapLine[int(center + int(currentWidthDown))]
         thisToothPossition2[3][24 + i] = center + int(currentWidthDown)
 
         currentWidthUp += toothWidth[0, i] / 2
         currentWidthDown += toothWidth[0, i] / 2
-
-
-
-    # if not bTest:
-    #     np.savetxt(path, thisToothPossition2, delimiter=' ')
 
     return thisToothPossition2
 
@@ -76,19 +71,14 @@ def makeWaterShed(img, toothWidth, upD, downD, gapLine, center, path, backGround
     thresh = cv2.threshold(thresh, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
 
     thresh = cv2.bitwise_and(thresh, thresh, mask=np.uint8(backGround))
-    # if not bTest:
-    #     cv2.imwrite(path + "//" + "thresh.jpg", thresh)
-    D = ndimage.distance_transform_edt(thresh)
-
     return waterShed(img, thisToothPossition, thresh)
-
 
 def waterShed(img, thisToothPossition, thresh):
     D = ndimage.distance_transform_edt(thresh)
 
     starts = np.empty(img.shape[0:2], dtype=int)
     starts.fill(0)
-
+    img_copy = np.copy(img)
 
     for i in range(0, thisToothPossition[0].shape[0]):
 
@@ -133,7 +123,6 @@ def waterShed(img, thisToothPossition, thresh):
         if label == 0:
             continue
 
-
         # # otherwise, allocate memory for the label region and draw
         # # it on the mask
         mask = np.zeros(img.shape[0:2], dtype="uint8")
@@ -150,7 +139,9 @@ def waterShed(img, thisToothPossition, thresh):
             # TODO: don't hardcode
             if w in range(20, 150) and w in range(20, 150):
                 print("Here is cool too")
-                teethImages[label-1] = img[y:(y+h), x:(x+w)]
+                teethImages[label-1] = cv2.bitwise_and(img_copy, img_copy, mask = mask)[y:(y+h), x:(x+w)]
+                teethImages[label-1] = img_copy[y:(y+h), x:(x+w)]
+
                 #cv2.imshow('afterLaplace', teethImages[label-1])
                 bTeeth[label-1] = True
         else:
