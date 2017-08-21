@@ -10,8 +10,8 @@ from collections import namedtuple
 
 def cutImage(image):
 
-    borderGrey = cv2.adaptiveThreshold(cv2.cvtColor(image, cv2.COLOR_RGB2GRAY),255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,\
-            cv2.THRESH_BINARY,11,2)
+    # borderGrey = cv2.adaptiveThreshold(cv2.cvtColor(image, cv2.COLOR_RGB2GRAY),255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,\
+    #         cv2.THRESH_BINARY,11,2)
     borderGrey = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
     histogram = []
     for i in range(0,borderGrey.shape[1]):
@@ -24,8 +24,8 @@ def cutImage(image):
     procent = borderGrey.shape[1]/100
     borderLeft = int(histogram[int(15 * procent):int(25 * procent)].argmin(axis=0) + 15 * procent)
     borderRight = int(histogram[int(75 * procent):int(90 * procent)].argmin(axis=0) + 75 * procent)
-    print([borderGrey.shape[1], 75 *procent, borderLeft,borderRight])
-    roi = image[0:image.shape[0], (borderLeft+16-borderLeft%16):(borderRight-borderRight%16)]
+
+    roi = image[:, (borderLeft+16-borderLeft%16):(borderRight-borderRight%16)]
 
     histogram = histogram / (borderGrey.shape[0]//2)
     # plt.plot(histogram)

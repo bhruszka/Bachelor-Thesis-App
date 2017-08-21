@@ -1,0 +1,31 @@
+{% extends 'imageDisp/base.html' %}
+
+
+{% block content %}
+    <script>
+        var num = {{ number }};
+    </script>
+    {% load static %}
+    <script src="{% static 'scripts/browse.js' %}">
+    </script>
+    <div class="container">
+        {% if pantomogram_info == None %}
+            <p>No images in gallery.</p>
+        {% else %}
+            <div class="row">
+                <h2>{{ pantomogram_info.image_name_text }}</h2>
+                <p>You can also use arrow keys to switch between images.</p>
+                <button type="button" class="btn btn-margin" onclick="goLeft()"><</button>
+                <button type="button" class="btn btn-margin" onclick="goRight()">></button>
+            </div>
+            <div class="row">
+            <div class="thumbnail">
+                <a href="/gallery/{{ pantomogram_info.image_name_text }}/details">
+                    <img src={{ pantomogram_info.output_image.url }} style="width:100%"/>
+                </a>
+            </div>
+
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}

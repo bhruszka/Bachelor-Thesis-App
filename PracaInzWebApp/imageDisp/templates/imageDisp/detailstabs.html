@@ -1,35 +1,85 @@
 {% if tab == "1" %}
     <div class="row">
-        <table class="table table-bordered">
-            <tbody>
-            <tr>
-                {% for tooth in pantomogram_info.present_teeth_text|slice:":16" %}
-                    <th>{{ tooth }}</th>
-                {% endfor %}
-            </tr>
-            <tr>
-                {% for tooth in pantomogram_info.present_teeth_text|slice:"16:32" %}
-                    <th>{{ tooth }}</th>
-                {% endfor %}
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="row">
-        <img src={{ pantomogram_info.output_image.url }} style="max-width: 100%" >
+        <div class="thumbnail">
+            <div class="caption">
+                <p>Enhenced original image with most important information drawn on it.</p>
+                <ul>
+                    <li>Green - teeth contours.</li>
+                    <li>Blue - watershed algorithm starting points.</li>
+                    <li>Red - teeth names.</li>
+                </ul>
+
+            </div>
+            <img src={{ pantomogram_info.output_image.url }} style="width:100%"/>
+        </div>
+
     </div>
 {% elif tab == "2" %}
     <div class="row">
-        <p> Tab2 </p>
+        <div class="thumbnail">
+            <div class="caption">
+                <p>Original image without any changes.</p>
+            </div>
+            <img src={{ pantomogram_info.input_image.url }} style="width:100%"/>
+        </div>
+    </div>
+{% elif tab == "5" %}
+    <div class="row">
+        <h1>Important application's processes outputs.</h1>
+        <p style="margin-bottom: 25px;">That are not visible on application output.</p>
+
+    </div>
+
+    <div class="row">
+        <div class="thumbnail">
+            <div class="caption">
+                <h3>Finding starting point for gap valley detection.</h3>
+                <ul>
+                    <li>Green line - horizontal starting point.</li>
+                    <li>Red line - vertical starting point.</li>
+                    <li>Blue circle - starting point.</li>
+                </ul>
+            </div>
+            <img src={{ pantomogram_info.process_image_starting_points.url }}  style="width:100%"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="thumbnail">
+            <div class="caption">
+                <h3>Finding gap valley.</h3>
+                <p>In order to get best result program adds image after thresholding to the 4th level of Laplacian pyramid decomposition. Threshold value was established experimentally as from 70 to 255.</p>
+                <ul>
+                    <li>Green line - gap valley.</li>
+                </ul>
+            </div>
+            <img src={{ pantomogram_info.process_image_laplace.url }}  style="width:100%"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="thumbnail">
+            <div class="caption">
+                <h3>Finding neck lines.</h3>
+                <p>Enhanced grey scale copy of original image is used.</p>
+                <ul>
+                    <li>Green line - gap valley.</li>
+                    <li>Red line - upper teeth neck line.</li>
+                    <li>Blue line - lower teeth neck line.</li>
+                </ul>
+            </div>
+            <img src={{ pantomogram_info.process_image_gap.url }} style="width:100%"/>
+        </div>
     </div>
     <div class="row">
-        <img src={{ pantomogram_info.input_image.url }} style="max-width: 100%" >
+
+        <div class="thumbnail">
+            <div class="caption">
+                 <h3>Threshold image.</h3>
+                <p>Pyramid mean shift filtered and Otsu thresholded image used for watershed algorithm.</p>
+            </div>
+            <img src={{ pantomogram_info.thresh_image.url }} style="width:100%"/>
+        </div>
     </div>
-{% elif tab == "3" %}
-    <div class="row">
-        <p> Tab3 </p>
-    </div>
-    <div class="row">
-        <img src={{ pantomogram_info.thresh_image.url }} style="max-width: 100%" >
-    </div>
-{% endif %} 
+{% endif %}
+

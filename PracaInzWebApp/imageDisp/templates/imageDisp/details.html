@@ -1,19 +1,22 @@
 {% extends 'imageDisp/base.html' %}
 
 {% block content %}
-    <!--<div class="jumbotron text-left">
-        <div class="col-md-offset-1">
-            <h1>Details: {{ pantomogram_info.image_name_text }}</h1>
-        </div>
-    </div>-->
+{#    <div class="jumbotron text-left">#}
+{#        <div class="col-md-offset-1">#}
+{#            <h2>Details of {{ pantomogram_info.image_name_text }}</h2>#}
+{#        </div>#}
+{#    </div>#}
     <div class="container">
+        <div class="row">
+            <h2>Details of {{ pantomogram_info.image_name_text }}</h2>
+        </div>
         <div class="row">
             <ul class="nav nav-tabs">
                 <li {% if tab == "1" %} class="active" {% endif %} ><a href="./1">Segmented Image</a></li>
                 <li {% if tab == "2" %} class="active" {% endif %}><a href="./2">Input Image</a></li>
                 <li {% if tab == "3" %} class="active" {% endif %}><a href="./3">Teeth</a></li>
                 <li {% if tab == "4" %} class="active" {% endif %}><a href="./4">Edit</a></li>
-
+                <li {% if tab == "5" %} class="active" {% endif %}><a href="./5">Process</a></li>
             </ul>
         </div>
         {% include 'imageDisp/detailstabs.html' with tab=tab %} 

@@ -28,6 +28,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/gallery">Pantomogram Gallery</a>
+                <a class="navbar-brand" href="/gallery/browse">Browse</a>
                 <a class="navbar-brand" href="/gallery/add">Add</a>
                 {#            <button type="button" class="btn navbar-btn" data-toggle="modal" data-target="#myModal">Add</button>#}
             </div>
@@ -36,16 +37,26 @@
     </nav>
     <div class="container">
         <div class="row">
+            <h2>Details of {{ pantomogram_info.image_name_text }}</h2>
+        </div>
+        <div class="row">
             <ul class="nav nav-tabs">
                 <li><a href="./1">Segmented Image</a></li>
                 <li><a href="./2">Input Image</a></li>
                 <li><a href="./3">Teeth</a></li>
                 <li class="active"><a href="./4">Edit</a></li>
+                <li><a href="./5">Process</a></li>
 
             </ul>
         </div>
         <div class="row">
+            <h1>Edit starting points</h1>
+            <p>You can drag ends of lines to adjust starting points for watershed algorithm. Press submit to reprocess image.</p>
+        </div>
+        <div class="row">
             <button class="save btn btn-default btn-margin" onclick="post_teeth_data()">Submit</button>
+            <button class="save btn btn-default btn-margin" onclick="reset()">Reset</button>
+            <button class="save btn btn-default btn-margin" onclick="full_reset()">Full Reset</button>
         </div>
 
 

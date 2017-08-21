@@ -9,6 +9,7 @@ from Segmentation import WatershedMaker as sg
 
 red = (0, 0, 255)
 green = (0, 255, 0)
+blue = (255, 0, 0)
 nStripes = 12
 minStripes = 5
 
@@ -27,30 +28,27 @@ def mat2base64(mat):
 def processImage(inputimg, writePath="", bTest=False):
     img = np.array(inputimg)
     img = iT.cutImage(img)
+
+    process_images = [None] * 32
+
     # Resize:
 
     hFactor = 1000 / img.shape[0]
-    print(hFactor)
-    print(img.shape)
     img = cv2.resize(img, (0, 0), fx=hFactor, fy=hFactor)
-
     tempImg = np.empty((img.shape[0] + 16 - (img.shape[0] % 16), img.shape[1] + 16 - (img.shape[1] % 16), 3),
                        dtype=np.uint8)
-
     tempImg.fill(0)
     tempImg[0:img.shape[0], 0:img.shape[1], 0:3] = img
     img = np.array(tempImg, copy=True)
-    # img = cv2.GaussianBlur(img,(3,3),0)
-    # cv2.imshow('image', img)
-    # cv2.waitKey(0)
-    # cv2.destroyAllWindows()
-    # if(img.shape[1] % 16 != 0):
+
     image = np.array(img, copy=True)
+    img_line_copy = np.copy(image)
+    img_gap_copy = np.copy(image)
 
     gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
     gray = cv2.equalizeHist(gray)
-    # 1. Find the gap valley line:
 
+    # 1. Find the gap valley line:
 
     # 1.a Finding vertical starting point(nose line):
     noseline = 0
@@ -69,6 +67,9 @@ def processImage(inputimg, writePath="", bTest=False):
 
     if (bHist / (25 * gray.shape[0] // 100)) < 300:
         noseline = image.shape[1] // 2
+    cv2.line(img_line_copy, (noseline, 20 * gray.shape[0] // 100),
+             (noseline, 45 * gray.shape[0] // 100), green)
+
 
     # 1.b Finding horizontal starting point:
     histogram = []
@@ -84,30 +85,28 @@ def processImage(inputimg, writePath="", bTest=False):
         if histogram[startingPoint] > histogram[i]:
             startingPoint = i
 
+    cv2.line(img_line_copy, (4 * image.shape[1] // 10, startingPoint),
+             (6 * image.shape[1] // 10, startingPoint), blue)
+
+    cv2.circle(img_line_copy, (noseline, startingPoint), 5, red, 1)
+    cv2.circle(img_gap_copy, (noseline, startingPoint), 5, red, 1)
+
     # 1.c Finding gap ends:
-    # image = iT.findGapEnds(image, startingPoint)
-    # img = np.array(image, copy=True)
-    # gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
-    # gray = cv2.equalizeHist(gray)
+
     gapLine = np.empty(image.shape[1], dtype=np.uint16)
     gapLine.fill(0)
-    # noseline = gray.shape[1] // 2
+    gapLineSlope = np.empty(image.shape[1], dtype=np.double)
+    gapLineSlope.fill(0.0)
+
 
     # 1.d  Left side gap line:
     L4 = iT.laplacePyramid(image).L2
     L4 = cv2.cvtColor(L4, cv2.COLOR_RGB2GRAY)
-    ret, mask = cv2.threshold(gray, 70, 255, cv2.THRESH_BINARY)
-    # mask = cv2.threshold(gray, 50, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
-    # mask = cv2.adaptiveThreshold(gray,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,\
-    #         cv2.THRESH_BINARY,11,2)
-    # afterLaplace = cv2.bitwise_and(gray, gray, mask=mask)
+
     afterLaplace = gray
     afterLaplace = cv2.add(L4, afterLaplace)
-
-    # afterLaplace = cv2.bitwise_and(L4, L4, mask=mask)
-    # afterLaplace = L4
-
-
+    afterLaplace_Copy = cv2.cvtColor(np.copy(afterLaplace), cv2.COLOR_GRAY2BGR)
+    cv2.circle(afterLaplace_Copy, (noseline, startingPoint), 5, red, 1)
     stripeSize = (gray.shape[1] // nStripes)
     startingPointTemp = startingPoint
 
@@ -133,12 +132,15 @@ def processImage(inputimg, writePath="", bTest=False):
 
         # print(histogram[startingPoint] / stripeSize)
         if histogram[startingPoint] / stripeSize < 100 or k < minStripes:
-            # cv2.line(image, (noseline - (k - 1) * stripeSize, oldStartingPoint),
-            #          (noseline - (k) * stripeSize, startingPoint), red)
+            cv2.line(afterLaplace_Copy, (noseline - (k - 1) * stripeSize, oldStartingPoint),
+                     (noseline - (k) * stripeSize, startingPoint), green)
+            cv2.line(img_gap_copy, (noseline - (k - 1) * stripeSize, oldStartingPoint),
+                     (noseline - (k) * stripeSize, startingPoint), green)
             m = 0
-            dY = abs((startingPoint - oldStartingPoint) / (stripeSize))
+            dY = (startingPoint - oldStartingPoint) / (stripeSize)
             for i in range(noseline - (k) * stripeSize, noseline - (k - 1) * stripeSize):
-                gapLine[i] = math.floor(startingPoint + dY * m)
+                gapLine[i] = math.floor(startingPoint - dY * m)
+                gapLineSlope[i] = dY
                 m += 1
         else:
             break
@@ -171,13 +173,16 @@ def processImage(inputimg, writePath="", bTest=False):
 
         # print(histogram[startingPoint] / stripeSize)
         if histogram[startingPoint] / stripeSize < 100 or k < minStripes:
-            # cv2.line(image, (noseline + (k - 1) * stripeSize, oldStartingPoint),
-            #          (noseline + (k) * stripeSize, startingPoint), red)
+            cv2.line(afterLaplace_Copy, (noseline + (k - 1) * stripeSize, oldStartingPoint),
+                     (noseline + (k) * stripeSize, startingPoint), green)
+            cv2.line(img_gap_copy, (noseline + (k - 1) * stripeSize, oldStartingPoint),
+                     (noseline + (k) * stripeSize, startingPoint), green)
             m = 0
             dY = (oldStartingPoint - startingPoint) / (stripeSize)
 
             for i in range(noseline + (k - 1) * stripeSize, noseline + (k) * stripeSize):
                 gapLine[i] = math.floor(oldStartingPoint - dY * m)
+                gapLineSlope[i] = -dY
                 m += 1
         else:
             break
@@ -296,13 +301,14 @@ def processImage(inputimg, writePath="", bTest=False):
     backGround = np.empty(gray.shape, dtype=np.uint16)
     backGround.fill(0)
 
-    bG_up_dj = int(2.5 * up_dJ)
-    bG_down_dj = int(2.5 * down_dJ)
+    bG_up_dj = int(1.5 * up_dJ)
+    bG_down_dj = int(1.5 * down_dJ)
     gapEnd = int(gapStart + 2 * gapWidth)
     for i in range(gapStart, gapEnd):
         backGround[(gapLine[i] + bG_up_dj):(gapLine[i] + bG_down_dj), i] = 255
         backGround[(gapLine[i] - 1):(gapLine[i] + 10), i]  = 0
-
+        img_gap_copy[gapLine[i] + up_dJ, i] = (255, 0, 0)
+        img_gap_copy[gapLine[i] + down_dJ, i] = (0, 0, 255)
     backGround[(gapLine[gapStart] + bG_up_dj):(gapLine[gapStart] + bG_down_dj), :int(gapStart)] = 255
     backGround[
     (gapLine[gapEnd - 1] + bG_up_dj):(gapLine[gapEnd - 1] + bG_down_dj),
@@ -311,20 +317,44 @@ def processImage(inputimg, writePath="", bTest=False):
     backGround[(gapLine[int(gapStart)] - 1):(gapLine[int(gapStart)] + 10), :int(gapStart)] = 0
     backGround[(gapLine[(gapEnd - 1)] - 1):(gapLine[(gapEnd - 1)] + 10),
     (gapEnd - 1):] = 0
+
+
     # img = cv2.cvtColor(afterLaplace,cv2.COLOR_GRAY2RGB)
     # img = cv2.bitwise_and(img, img, mask=np.uint8(backGround))
 
 
     afterLaplace = cv2.cvtColor(afterLaplace, cv2.COLOR_GRAY2RGB)
     resultImage, thresh, thisToothPossition, bTeeth, teethImages = sg.makeWaterShed(afterLaplace, toothWidth, up_dJ,
-                                                                                    down_dJ, gapLine, gapCenter, "",
-                                                                                    backGround, bTest)
-    return mat2base64(tempImg), mat2base64(resultImage), mat2base64(thresh), thisToothPossition, bTeeth, teethImages
+                                                                                    down_dJ, gapLine, gapLineSlope, gapCenter,
+                                                                                    backGround)
+    process_images[0] = mat2base64(img_line_copy)
+    process_images[1] = mat2base64(afterLaplace_Copy)
+    process_images[2] = mat2base64(img_gap_copy)
+
+    return mat2base64(tempImg), mat2base64(resultImage), mat2base64(thresh), thisToothPossition, bTeeth, teethImages, process_images
 
 
 def redoWatershed(inputimg, threshimg, thisToothPossition):
     img = np.array(inputimg)
+
+    gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+    gray = cv2.equalizeHist(gray)
+
+    L4 = iT.laplacePyramid(img).L2
+    L4 = cv2.cvtColor(L4, cv2.COLOR_RGB2GRAY)
+
+    afterLaplace = gray
+    afterLaplace = cv2.add(L4, afterLaplace)
+
+    thisToothPossitionCopy = np.copy(thisToothPossition)
+    thisToothPossition[:, 0:8] = thisToothPossitionCopy[:, range(7, -1, -1)]
+    thisToothPossition[:, 8:16] = thisToothPossitionCopy[:, range(15, 7, -1)]
+    thisToothPossition[:, 16:24] = thisToothPossitionCopy[:, range(23, 15, -1)]
+    thisToothPossition[:, 24:32] = thisToothPossitionCopy[:, range(31, 23, -1)]
+
+
     thresh = np.array(threshimg)
-    thresh = cv2.cvtColor(thresh, cv2.COLOR_RGB2GRAY)
-    resultimg, thresh, thisToothPossition, bTeeth, teethImages = sg.waterShed(img, thisToothPossition, thresh)
+    thresh = cv2.cvtColor(thresh, cv2.COLOR_BGR2GRAY)
+    afterLaplace = cv2.cvtColor(afterLaplace, cv2.COLOR_GRAY2RGB)
+    resultimg, thresh, thisToothPossition, bTeeth, teethImages = sg.waterShed(afterLaplace, thisToothPossition, thresh)
     return mat2base64(resultimg), bTeeth, teethImages

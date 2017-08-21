@@ -130,3 +130,12 @@ function mouseReleased() {
 function windowResized() {
   centerCanvas();
 }
+
+function reset(){
+    window.location.reload(false);
+    return;
+}
+
+function full_reset() {
+  return;
+}

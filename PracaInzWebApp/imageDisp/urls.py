@@ -8,7 +8,9 @@ urlpatterns = [
     url(r'^$', views.gallery, name='gallery'),
     url(r'^add/$', views.add, name='add'),
     url(r'^(?P<imageName>.+?)/details/$', views.details, name='details'),
-    url(r'^(?P<imageName>.+?)/details/(?P<tab>[1,2]{1})$', views.details, name='details'),
+    url(r'^(?P<imageName>.+?)/details/(?P<tab>[1,2,5]{1})$', views.details, name='details'),
     url(r'^(?P<imageName>.+?)/details/3$', views.teeth_view, name='teeth_view'),
     url(r'^(?P<imageName>.+?)/details/4$', views.edit, name='edit'),
+    url(r'^browse/(?P<num>.+?)$', views.browse, name='browse'),
+url(r'^browse/$', views.browse, name='browse'),
 ]

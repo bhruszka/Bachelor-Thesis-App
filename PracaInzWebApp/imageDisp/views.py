@@ -12,8 +12,10 @@ from django.utils import timezone
 import json
 import numpy as np
 from Segmentation import ImageProcessing as ip
+from django.views.decorators.csrf import csrf_exempt
+
 from .forms import PantomogramInfoForm
-from .models import PantomogramInfo, ToothInfo, full_add
+from .models import PantomogramInfo, ToothInfo, full_add, add_tooth_infos
 
 
 def gallery(request):
@@ -27,16 +29,17 @@ def gallery(request):
 
 def teeth_view(request, imageName):
     pantomogram_info = get_object_or_404(PantomogramInfo, pk=imageName)
-    tooth_infos_ul = ToothInfo.objects.filter(pantomogram=imageName, teeth_id__startswith='UL')
-    tooth_infos_ur = ToothInfo.objects.filter(pantomogram=imageName, teeth_id__startswith='UR')
-    tooth_infos_dl = ToothInfo.objects.filter(pantomogram=imageName, teeth_id__startswith='DL')
-    tooth_infos_dr = ToothInfo.objects.filter(pantomogram=imageName, teeth_id__startswith='DR')
+    tooth_infos_ul = ToothInfo.objects.filter(pantomogram=imageName, teeth_id__startswith='UL').order_by('-teeth_id')
+    tooth_infos_ur = ToothInfo.objects.filter(pantomogram=imageName, teeth_id__startswith='UR').order_by('teeth_id')
+    tooth_infos_dl = ToothInfo.objects.filter(pantomogram=imageName, teeth_id__startswith='DL').order_by('-teeth_id')
+    tooth_infos_dr = ToothInfo.objects.filter(pantomogram=imageName, teeth_id__startswith='DR').order_by('teeth_id')
     if len(tooth_infos_ul) != 8 or len(tooth_infos_ur) != 8 or len(tooth_infos_dl) != 8 or len(tooth_infos_dr) != 8:
         raise Http404(
             "Pantomogram doesn't have 32 teeth. Details: {} {} {} {}".format(len(tooth_infos_ul), len(tooth_infos_ur),
                                                                              len(tooth_infos_dl), len(tooth_infos_dr)))
     # prefix = ['UL', 'UR', 'DL', 'DR']
     context = {
+        'pant_name' : imageName,
         'tooth_infos_ul': tooth_infos_ul,
         'tooth_infos_ur': tooth_infos_ur,
         'tooth_infos_dl': tooth_infos_dl,
@@ -73,6 +76,12 @@ def addTooth_Info(panto, id, is_present, x1, y1, x2, y2, image):
 
 def edit(request, imageName):
     if request.method == "POST":
+        panto = get_object_or_404(PantomogramInfo, pk=imageName)
+
+        if panto.b_edit:
+            return render(request, 'imageDisp/edit_error.html', {'pantomogram_info': panto})
+        panto.b_edit = True
+        panto.save()
         thisToothPossition = np.empty((4, 32), dtype=int)
 
         try:
@@ -104,8 +113,6 @@ def edit(request, imageName):
         #     raise Http404("It seems like somebody is messing with our form.")
 
 
-        panto = get_object_or_404(PantomogramInfo, pk=imageName)
-
         input_image = Image.open(panto.input_image)
 
         thresh_image = Image.open(panto.thresh_image)
@@ -123,22 +130,13 @@ def edit(request, imageName):
                                                                           None, )
         panto.output_image = output_file
         panto.present_teeth_text = bTeeth
+        panto.b_edit = False
         panto.save()
 
         ToothInfo.objects.filter(pantomogram=imageName).delete()
-        for i in range(0, 8):
-            addTooth_Info(panto, "UL{}".format(i + 1), bTeeth[i], thisToothPossition[0, i],
-                          thisToothPossition[1, i],
-                          thisToothPossition[2, i], thisToothPossition[3, i], teethImages[i])
-            addTooth_Info(panto, "UR{}".format(i + 1), bTeeth[i], thisToothPossition[0, i + 8],
-                          thisToothPossition[1, i + 8],
-                          thisToothPossition[2, i + 8], thisToothPossition[3, i + 8], teethImages[i])
-            addTooth_Info(panto, "DR{}".format(i + 1), bTeeth[i], thisToothPossition[0, i + 16],
-                          thisToothPossition[1, i + 16],
-                          thisToothPossition[2, i + 16], thisToothPossition[3, i + 16], teethImages[i])
-            addTooth_Info(panto, "DL{}".format(i + 1), bTeeth[i], thisToothPossition[0, i + 24],
-                          thisToothPossition[1, i + 24],
-                          thisToothPossition[2, i + 24], thisToothPossition[3, i + 24], teethImages[i])
+        panto.present_teeth_text = add_tooth_infos(panto.image_name_text, thisToothPossition, bTeeth, teethImages, panto)
+        panto.save()
+
         return redirect('edit', imageName=panto.pk)
     else:
         pantomogram_info = get_object_or_404(PantomogramInfo, pk=imageName)
@@ -151,7 +149,7 @@ def edit(request, imageName):
         js_data = json.dumps(teeth_dict)
         return render(request, 'imageDisp/edit.html', {'pantomogram_info': pantomogram_info, 'js_data': js_data})
 
-
+@csrf_exempt
 def add(request):
     if request.method == "POST":
         form = PantomogramInfoForm(request.POST, request.FILES)
@@ -159,10 +157,10 @@ def add(request):
         if form.is_valid():
             image_file = request.FILES['input_image']
             input_image = Image.open(image_file)
-            cut_image, output_image, thresh_image, thisToothPossition, bTeeth, teethImages = ip.processImage(
+            cut_image, output_image, thresh_image, thisToothPossition, bTeeth, teethImages, process_images = ip.processImage(
                 input_image)
             new_panto = full_add(image_file, cut_image, output_image, thresh_image, thisToothPossition, bTeeth,
-                                 teethImages)
+                                 teethImages, process_images)
 
             return redirect('details', imageName=new_panto.pk)
 
@@ -173,4 +171,23 @@ def add(request):
         form = PantomogramInfoForm()
     return render(request, 'imageDisp/add.html', {'form': form})
 
+def browse(request, num = 0):
+    try:
+        number = int(num)
+    except (ValueError, TypeError):
+        return redirect('/gallery/browse/0')
+    else:
+        if number > PantomogramInfo.objects.count() - 1:
+            return redirect('/gallery/browse/0')
+        elif number == -1:
+            number = PantomogramInfo.objects.count() - 1
+            return redirect('/gallery/browse/' + str(number))
+        elif number < -1:
+            return redirect('/gallery/browse/0')
+
+    if PantomogramInfo.objects.count == 0:
+        return render(request, 'imageDisp/browse.html', {'pantomogram_info': None, "number": 0})
+    else:
+        pants = list(PantomogramInfo.objects.order_by("image_name_text"))
+        return render(request, 'imageDisp/browse.html', {'pantomogram_info': pants[number], "number": number})
 # def makeImage(path):
