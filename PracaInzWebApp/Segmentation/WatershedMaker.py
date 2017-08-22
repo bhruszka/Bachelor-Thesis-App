@@ -43,12 +43,6 @@ def makeToothPossitions(toothWidth, img, upD, downD, gapLine, gapLineSlope, cent
         current_width_down_right = int(center + current_width_down)
         current_width_down_left = int(center - current_width_down)
 
-        # Calc slope:
-        slope_up = -gapLineSlope[current_width_up]
-        slope_down = -gapLineSlope[current_width_down]
-
-        print("SLOPE: {}".format(int(d_upD * slope_up)))
-
         # Up left:
         #
         mask.fill(0)
