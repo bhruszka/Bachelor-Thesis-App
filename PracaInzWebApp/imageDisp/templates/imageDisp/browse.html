@@ -13,19 +13,66 @@
             <p>No images in gallery.</p>
         {% else %}
             <div class="row">
-                <h2>{{ pantomogram_info.image_name_text }}</h2>
+                <h2>
+                    <th><a href="/gallery/{{ pantomogram_info.image_name_text }}/details"><span
+                            class="glyphicon glyphicon-share-alt"></span>{{ pantomogram_info.image_name_text }} </a>
+                    </th>
+                </h2>
                 <p>You can also use arrow keys to switch between images.</p>
                 <button type="button" class="btn btn-margin" onclick="goLeft()"><</button>
                 <button type="button" class="btn btn-margin" onclick="goRight()">></button>
             </div>
             <div class="row">
-            <div class="thumbnail">
-                <a href="/gallery/{{ pantomogram_info.image_name_text }}/details">
-                    <img src={{ pantomogram_info.output_image.url }} style="width:100%"/>
-                </a>
+                <div class="thumbnail">
+                    <a href="/gallery/{{ pantomogram_info.image_name_text }}/details">
+                        <img src={{ pantomogram_info.output_image.url }} style="width:100%"/>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Table with extracted teeth</h3>
+                <p>X - means that tooth was not found.</p>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="active">
+                        <th>8</th>
+                        <th>7</th>
+                        <th>6</th>
+                        <th>5</th>
+
+                        <th>4</th>
+                        <th>3</th>
+                        <th>2</th>
+                        <th>1</th>
+
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        {% for tooth in pantomogram_info.present_teeth_text|slice:":16" %}
+                            <th>{{ tooth }}</th>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        {% for tooth in pantomogram_info.present_teeth_text|slice:"16:32" %}
+                            <th>{{ tooth }}</th>
+                        {% endfor %}
+                    </tr>
+                    </tbody>
+                </table>
             </div>
 
         {% endif %}
-        </div>
+    </div>
     </div>
 {% endblock %}

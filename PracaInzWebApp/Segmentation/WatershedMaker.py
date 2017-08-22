@@ -202,8 +202,7 @@ def waterShed(img, thisToothPossition, thresh):
                 # teethImages[label-1] = cv2.bitwise_and(img_copy, img_copy, mask = mask)[y:(y+h), x:(x+w)]
 
                 temp_tooth_image = img_copy[y:(y + h), x:(x + w)]
-
-                if np.average(temp_tooth_image) > 100:
+                if np.average(temp_tooth_image) > 80:
                     teethImages[label - 1] = temp_tooth_image
                     cv2.drawContours(img, c, -1, [0, 255, 0], 2)
                     bTeeth[label - 1] = 1

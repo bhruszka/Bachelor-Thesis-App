@@ -347,10 +347,10 @@ def redoWatershed(inputimg, threshimg, thisToothPossition):
     afterLaplace = cv2.add(L4, afterLaplace)
 
     thisToothPossitionCopy = np.copy(thisToothPossition)
-    thisToothPossition[:, 0:8] = thisToothPossitionCopy[:, range(7, -1, -1)]
-    thisToothPossition[:, 8:16] = thisToothPossitionCopy[:, range(15, 7, -1)]
-    thisToothPossition[:, 16:24] = thisToothPossitionCopy[:, range(23, 15, -1)]
-    thisToothPossition[:, 24:32] = thisToothPossitionCopy[:, range(31, 23, -1)]
+    thisToothPossition[:, 0:8] = thisToothPossitionCopy[:, range(7, -1, -1)] #good
+    thisToothPossition[:, 16:24] = thisToothPossitionCopy[:, range(15, 7, -1)]#good
+    thisToothPossition[:, 8:16] = thisToothPossitionCopy[:, range(24, 32, 1)]
+    thisToothPossition[:, 24:32] = thisToothPossitionCopy[:, range(16, 24, 1)]
 
 
     thresh = np.array(threshimg)

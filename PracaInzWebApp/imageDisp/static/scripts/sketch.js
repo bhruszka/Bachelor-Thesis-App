@@ -31,6 +31,9 @@ function  check_point_collision(point){
   return -1;
 }
 function post_teeth_data() {
+    document.getElementById("submit").disabled = true;
+    document.getElementById("reset").disabled = true;
+    document.getElementById("fullreset").disabled = true;
 
     var form = document.getElementById('teeth_form');
     form.setAttribute("method", "post");

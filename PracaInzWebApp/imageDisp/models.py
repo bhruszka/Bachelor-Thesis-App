@@ -60,6 +60,7 @@ def prep_image_file(image, image_name):
                                                                sys.getsizeof(byteImg),
                                                                None, )
 def add_tooth_infos(image_name, thisToothPossition, bTeeth, teethImages, panto):
+    image_name = image_name.replace(".jpg", "")
     present_teeth_text_array = np.empty(32, dtype='str')
     present_teeth_text_array.fill("3")
     for i in range(0, len(bTeeth)):
