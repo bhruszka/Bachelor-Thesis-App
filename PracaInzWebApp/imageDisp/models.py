@@ -60,7 +60,6 @@ def prep_image_file(image, image_name):
                                                                sys.getsizeof(byteImg),
                                                                None, )
 def add_tooth_infos(image_name, thisToothPossition, bTeeth, teethImages, panto):
-    image_name = image_name.replace(".jpg", "")
     present_teeth_text_array = np.empty(32, dtype='str')
     present_teeth_text_array.fill("3")
     for i in range(0, len(bTeeth)):
@@ -118,7 +117,7 @@ def add_tooth_infos(image_name, thisToothPossition, bTeeth, teethImages, panto):
 def full_add(image_file, cut_image, output_image, thresh_image, thisToothPossition, bTeeth, teethImages,
              process_images):
     image_name = image_file.name
-
+    image_name = image_name.replace(".jpg", "")
     output_file = prep_image_file(output_image, image_name)
     thresh_file = prep_image_file(thresh_image, image_name)
     cut_file = prep_image_file(cut_image, image_name)
