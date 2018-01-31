@@ -86,25 +86,25 @@ def edit(request, imageName):
 
         try:
             for i in range(1, 9):
-                thisToothPossition[0, i - 1] = int(request.POST["UL{}X1".format(i)])
-                thisToothPossition[1, i - 1] = int(request.POST["UL{}Y1".format(i)])
-                thisToothPossition[2, i - 1] = int(request.POST["UL{}X2".format(i)])
-                thisToothPossition[3, i - 1] = int(request.POST["UL{}Y2".format(i)])
+                thisToothPossition[0, i - 1] = int(float(request.POST["UL{}X1".format(i)]))
+                thisToothPossition[1, i - 1] = int(float(request.POST["UL{}Y1".format(i)]))
+                thisToothPossition[2, i - 1] = int(float(request.POST["UL{}X2".format(i)]))
+                thisToothPossition[3, i - 1] = int(float(request.POST["UL{}Y2".format(i)]))
 
-                thisToothPossition[0, i - 1 + 8] = int(request.POST["UR{}X1".format(i)])
-                thisToothPossition[1, i - 1 + 8] = int(request.POST["UR{}Y1".format(i)])
-                thisToothPossition[2, i - 1 + 8] = int(request.POST["UR{}X2".format(i)])
-                thisToothPossition[3, i - 1 + 8] = int(request.POST["UR{}Y2".format(i)])
+                thisToothPossition[0, i - 1 + 8] = int(float(request.POST["UR{}X1".format(i)]))
+                thisToothPossition[1, i - 1 + 8] = int(float(request.POST["UR{}Y1".format(i)]))
+                thisToothPossition[2, i - 1 + 8] = int(float(request.POST["UR{}X2".format(i)]))
+                thisToothPossition[3, i - 1 + 8] = int(float(request.POST["UR{}Y2".format(i)]))
 
-                thisToothPossition[0, i - 1 + 16] = int(request.POST["DR{}X1".format(i)])
-                thisToothPossition[1, i - 1 + 16] = int(request.POST["DR{}Y1".format(i)])
-                thisToothPossition[2, i - 1 + 16] = int(request.POST["DR{}X2".format(i)])
-                thisToothPossition[3, i - 1 + 16] = int(request.POST["DR{}Y2".format(i)])
+                thisToothPossition[0, i - 1 + 16] = int(float(request.POST["DR{}X1".format(i)]))
+                thisToothPossition[1, i - 1 + 16] = int(float(request.POST["DR{}Y1".format(i)]))
+                thisToothPossition[2, i - 1 + 16] = int(float(request.POST["DR{}X2".format(i)]))
+                thisToothPossition[3, i - 1 + 16] = int(float(request.POST["DR{}Y2".format(i)]))
 
-                thisToothPossition[0, i - 1 + 24] = int(request.POST["DL{}X1".format(i)])
-                thisToothPossition[1, i - 1 + 24] = int(request.POST["DL{}Y1".format(i)])
-                thisToothPossition[2, i - 1 + 24] = int(request.POST["DL{}X2".format(i)])
-                thisToothPossition[3, i - 1 + 24] = int(request.POST["DL{}Y2".format(i)])
+                thisToothPossition[0, i - 1 + 24] = int(float(request.POST["DL{}X1".format(i)]))
+                thisToothPossition[1, i - 1 + 24] = int(float(request.POST["DL{}Y1".format(i)]))
+                thisToothPossition[2, i - 1 + 24] = int(float(request.POST["DL{}X2".format(i)]))
+                thisToothPossition[3, i - 1 + 24] = int(float(request.POST["DL{}Y2".format(i)]))
 
 
         except KeyError:
