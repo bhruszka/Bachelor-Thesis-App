@@ -220,9 +220,9 @@ def waterShed(img, thisToothPossition, thresh):
             # down right:
             teeth_num = i - 24 + 1
             teeth_id = 'DR{}'.format(teeth_num)
-        font = cv2.FONT_HERSHEY_SIMPLEX
+        font = cv2.FONT_HERSHEY_PLAIN         	
         cv2.putText(img, teeth_id, ((thisToothPossition[1][i] + thisToothPossition[3][i]) // 2 - 20,
-                                    (thisToothPossition[0][i] + thisToothPossition[2][i]) // 2), font, 0.5, (255, 0, 0),
+                                    (thisToothPossition[0][i] + thisToothPossition[2][i]) // 2), font, 1, (255, 0, 0),
                     2,
                     cv2.LINE_AA)
     # cv2.imshow('afterLaplace', img)

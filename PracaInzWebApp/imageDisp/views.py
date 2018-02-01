@@ -75,7 +75,10 @@ def addTooth_Info(panto, id, is_present, x1, y1, x2, y2, image):
 
 
 def edit(request, imageName):
+    print("Edit View:")
+    print(request.method )
     if request.method == "POST":
+        print("Post:")
         panto = get_object_or_404(PantomogramInfo, pk=imageName)
 
         if panto.b_edit:

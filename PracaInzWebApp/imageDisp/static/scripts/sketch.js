@@ -68,6 +68,7 @@ function post_teeth_data() {
     }
 
     document.body.appendChild(form);
+    form.setAttribute("method", "post");
     form.submit();
 }
 
