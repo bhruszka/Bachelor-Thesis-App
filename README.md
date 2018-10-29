@@ -1,4 +1,4 @@
-# Application that I wrote for my bachelor thesis 
+# Tooth segmentation on pantomogram images - Application - Bachelor Thesis 
 
 ## Summary
 
